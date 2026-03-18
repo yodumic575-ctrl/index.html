@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Telegram 预览：全透明配置，彻底隐藏网址 -->
-    <meta property="og:title" content="ㅤ"> <!-- 透明字符 -->
-    <meta property="og:description" content="ㅤ"> <!-- 透明字符 -->
-    <!-- 诱饵大图：一张高清美女封面图 -->
-    <meta property="og:image" content="https://images.unsplash.com">
+    <!-- Telegram 预览：彻底隐藏网址 -->
+    <meta property="og:title" content="ㅤ">
+    <meta property="og:description" content="ㅤ">
+    <!-- 换成了一个更稳定的 16:9 美女图链接 -->
+    <meta property="og:image" content="https://img.jt.org">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
@@ -16,13 +16,13 @@
     <title>ㅤ</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        /* 美女图全屏显示 */
+        /* 强制图片撑满全屏，不留黑边 */
         #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body onclick="startPrank()">
-    <!-- 网页里显示的美女图 -->
-    <img src="https://images.unsplash.com" id="prankImage">
+    <!-- 网页里显示的诱导图 -->
+    <img src="https://img.jt.org" id="prankImage">
 
     <!-- 魔性笑声 -->
     <audio id="prankSound" loop>
