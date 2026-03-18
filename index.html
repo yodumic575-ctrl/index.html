@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 1. 彻底隐藏绿字：标题和描述设为空 -->
+    <!-- 1. 彻底隐藏绿字：标题和描述必须是空的 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
-    
-    <!-- 2. 核心：使用 100% 能抓到的大图链接 -->
-    <meta property="og:image" content="https://img.jt.org">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
+    <meta property="og:site_name" content="ㅤ">
+
+    <!-- 2. 核心：换一个图片链接，强制 TG 抓取大图 -->
+    <meta property="og:image" content="https://images.unsplash.com">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="video.other">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -22,8 +23,8 @@
     </style>
 </head>
 <body onclick="startPrank()">
-    <!-- 网页里显示的诱饵图 -->
-    <img src="https://img.jt.org" id="prankImage">
+    <!-- 网页里显示的美女图 -->
+    <img src="https://images.unsplash.com" id="prankImage">
 
     <audio id="prankSound" loop>
         <source src="https://www.soundjay.com" type="audio/mpeg">
