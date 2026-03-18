@@ -1,39 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ㅤ</title> <!-- 不可见空格 -->
-
-    <!-- Telegram 预览配置：确保只出图，不显示文字和绿字 -->
-    <meta property="og:title" content="ㅤ">
-    <meta property="og:description" content="ㅤ">
-    <!-- 我已经帮你把老先生的照片地址写死在这里了 -->
-    <meta property="og:image" content="https://telegra.ph">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
+    <title>利友的个人主页</title>
     <style>
-        body { background: #000; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        /* 全屏透明层：用户点进网页只要碰一下屏幕，立刻响 */
-        #touch-area { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; cursor: pointer; }
-        .spinner { border: 3px solid #111; border-top: 3px solid #ff4757; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f9; }
+        h1 { color: #333; }
+        p { color: #666; font-size: 1.2em; }
+        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div id="touch-area"></div>
-    <div class="spinner"></div>
-    <!-- 搞怪音频源 -->
-    <audio id="audio" loop><source src="https://www.myinstants.com"></audio>
-
-    <script>
-        const a = document.getElementById('audio');
-        const t = document.getElementById('touch-area');
-        t.onclick = function() {
-            a.play();
-            t.style.display = 'none';
-        };
-    </script>
+    <h1>👋 你好，我是利友！</h1>
+    <p>这是我通过 GitHub Pages 发布的第一个网页。</p>
+    <a href="#" class="btn">了解更多</a>
 </body>
 </html>
