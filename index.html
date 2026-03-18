@@ -1,40 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- 彻底隐藏标题和绿字 -->
+    
+    <!-- Telegram 预览配置：隐藏文本 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
+    <!-- 强制抓取大图 -->
     <meta property="og:image" content="https://telegra.ph">
     <meta name="twitter:card" content="summary_large_image">
+
     <title>ㅤ</title>
     <style>
-        body, html { margin:0; padding:0; width:100%; height:100%; background:black; display:flex; align-items:center; justify-content:center; cursor:pointer; }
-        /* 使用背景图方式，强制显示 */
-        #main {
-            width:100%; height:100%;
-            background-image: url('https://telegra.ph');
-            background-size: cover;
-            background-position: center;
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        /* 使用 Base64 内嵌图片，确保 100% 出图 */
+        #prankImage { 
+            width: 100%; 
+            height: 100%; 
+            /* 此处已将图片转换为 Base64 编码，因内容过长，请参考原始文档中完整的 /9j/... 数据 */
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDA...');
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center; 
         }
     </style>
 </head>
-<body onclick="startPrank()">
-    <div id="main"></div>
-
-    <audio id="prankSound" loop>
-        <source src="https://www.soundjay.com" type="audio/mpeg">
-    </audio>
-
+<body>
+    <div id="prankImage"></div>
     <script>
-        var isDone = false;
-        function startPrank() {
-            if (isDone) return;
-            isDone = true;
-            document.getElementById('prankSound').play();
-            alert("😜 嘿嘿！被利友整到了吧！\n\n漂亮吗？");
-        }
+        // 点击页面跳转
+        document.body.addEventListener('click', function() {
+            window.location.href = 'https://telegra.ph';
+        });
     </script>
 </body>
 </html>
