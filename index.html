@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 彻底隐藏绿字标题和描述 -->
+    <!-- 1. 彻底隐藏绿字标题：设为空白字符 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
+    <meta property="og:site_name" content="ㅤ">
 
-    <!-- 核心：指向你仓库里刚上传的 prank.jpg -->
+    <!-- 2. 核心：精准指向你仓库里的图片 -->
     <meta property="og:image" content="https://yodumic575-ctrl.github.io">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1280">
@@ -18,11 +19,12 @@
     <title>ㅤ</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
+        /* 让你的 prank.jpg 铺满屏幕 */
+        #prankImage { width: 100%; height: 100%; object-fit: contain; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body onclick="startPrank()">
-    <!-- 网页里显示的也是你上传的那张图 -->
+    <!-- 网页里显示的也是你的那张图 -->
     <img src="prank.jpg" id="prankImage">
 
     <audio id="prankSound" loop>
@@ -35,7 +37,10 @@
             if (isDone) return;
             isDone = true;
             document.getElementById('prankSound').play();
-            alert("😜 嘿嘿！被利友整到了吧！");
+            if (navigator.vibrate) { navigator.vibrate(); }
+            setTimeout(function() {
+                alert("😜 嘿嘿！被利友整到了吧！\n(点击确定关闭)");
+            }, 100);
         }
     </script>
 </body>
