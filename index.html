@@ -2,17 +2,59 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>利友的个人主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Telegram 预览配置：伪装成视频预览 -->
+    <meta property="og:title" content="ㅤ">
+    <meta property="og:description" content="▶️ 点击播放视频 (0:45)">
+    <meta property="og:image" content="https://files.catbox.moe"> <!-- 诱导点击的大图 -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>正在加载...</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f9; }
-        h1 { color: #333; }
-        p { color: #666; font-size: 1.2em; }
-        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        /* 全屏黑色背景，让图片居中 */
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: black; overflow: hidden; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        /* 诱导图片铺满屏幕，点击任何地方都触发 */
+        #prankImage {
+            width: 100%; height: 100%;
+            object-fit: contain; 
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
-<body>
-    <h1>👋 你好，我是利友！</h1>
-    <p>这是我通过 GitHub Pages 发布的第一个网页。</p>
-    <a href="#" class="btn">了解更多</a>
+<body onclick="startPrank()">
+
+    <!-- 网页显示的诱导图 -->
+    <img src="https://files.catbox.moe" id="prankImage">
+
+    <!-- 响亮的整蛊笑声 -->
+    <audio id="prankSound" loop>
+        <source src="https://www.soundjay.com" type="audio/mpeg">
+    </audio>
+
+    <script>
+        var isDone = false;
+        function startPrank() {
+            if (isDone) return;
+            isDone = true;
+
+            // 1. 立即播放声音（iPhone 点击即响）
+            var audio = document.getElementById('prankSound');
+            audio.play();
+
+            // 2. 触发安卓震动
+            if (navigator.vibrate) { navigator.vibrate([500, 300, 500]); }
+
+            // 3. 弹出恶作剧信息
+            setTimeout(function() {
+                alert("😜 嘿嘿！被利友整到了吧！\n\n吓坏了可别怪我~");
+            }, 100);
+        }
+    </script>
 </body>
 </html>
