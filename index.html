@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- 彻底消除绿字：标题和描述设为空白字符 -->
+    <!-- 1. 彻底清空所有标题，消除绿字 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
     <meta property="og:site_name" content="ㅤ">
 
-    <!-- 诱饵大图：换成了 Telegram 最容易识别的高清大图链接 -->
-    <meta property="og:image" content="https://img.jt.org">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
-    <meta property="og:type" content="video.other">
+    <!-- 2. 双保险图片路径：尝试让 TG 强制抓取 -->
+    <meta property="og:image" content="https://raw.githubusercontent.com">
+    <meta property="og:image:secure_url" content="https://yodumic575-ctrl.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
 
     <title>ㅤ</title>
@@ -23,10 +25,9 @@
     </style>
 </head>
 <body onclick="startPrank()">
-    <!-- 网页里显示的诱饵图 -->
-    <img src="https://img.jt.org" id="prankImage">
+    <!-- 网页里显示的图 -->
+    <img src="meinv.jpg" id="prankImage">
 
-    <!-- 魔性笑声 -->
     <audio id="prankSound" loop>
         <source src="https://www.soundjay.com" type="audio/mpeg">
     </audio>
