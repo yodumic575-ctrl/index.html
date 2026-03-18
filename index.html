@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Telegram 预览配置 -->
+    <!-- 彻底消除绿字标题和描述 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
-    <!-- 这里填入你的 GitHub 图片直链 -->
+    
+    <!-- 核心：使用完整的绝对路径，确保 Telegram 抓到图 -->
+    <!-- 注意：如果你的图片叫 meinv.jpg 且在 index.html 文件夹里，请确保下面链接正确 -->
     <meta property="og:image" content="https://yodumic575-ctrl.github.io">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
@@ -19,6 +22,7 @@
         #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
+
 <body onclick="startPrank()">
     <!-- 这里的 src 也要改成你的图片名 -->
     <img src="meinv.jpg" id="prankImage">
