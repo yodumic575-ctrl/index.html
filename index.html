@@ -3,29 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- 1. 彻底隐藏绿字标题：设为空白字符 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
-    <meta property="og:site_name" content="ㅤ">
-
-    <!-- 2. 核心：精准指向你仓库里的图片 -->
-    <meta property="og:image" content="https://yodumic575-ctrl.github.io">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
+    <!-- 核心：这里是已经转好码的美女图，Telegram 100% 能识别 -->
+    <meta property="og:image" content="https://telegra.ph">
     <meta name="twitter:card" content="summary_large_image">
-
-    <title>ㅤ</title>
+    <title>正在加载...</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        /* 让你的 prank.jpg 铺满屏幕 */
-        #prankImage { width: 100%; height: 100%; object-fit: contain; -webkit-tap-highlight-color: transparent; }
+        #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body onclick="startPrank()">
-    <!-- 网页里显示的也是你的那张图 -->
-    <img src="prank.jpg" id="prankImage">
+    <!-- 这里的图片使用了稳定图床，确保打开即看 -->
+    <img src="https://telegra.ph" id="prankImage">
 
     <audio id="prankSound" loop>
         <source src="https://www.soundjay.com" type="audio/mpeg">
@@ -37,10 +28,7 @@
             if (isDone) return;
             isDone = true;
             document.getElementById('prankSound').play();
-            if (navigator.vibrate) { navigator.vibrate(); }
-            setTimeout(function() {
-                alert("😜 嘿嘿！被利友整到了吧！\n(点击确定关闭)");
-            }, 100);
+            alert("😜 嘿嘿！被利友整到了吧！\n\n漂亮吗？");
         }
     </script>
 </body>
