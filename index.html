@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- 彻底隐藏标题，消除绿字 -->
+    
+    <!-- 彻底隐藏绿字标题和描述 -->
     <meta property="og:title" content="ㅤ">
     <meta property="og:description" content="ㅤ">
-    <!-- 诱饵大图：由 Telegram 官方托管，保证能抓到 -->
-    <meta property="og:image" content="https://telegra.ph">
+
+    <!-- 核心：指向你仓库里刚上传的 prank.jpg -->
+    <meta property="og:image" content="https://yodumic575-ctrl.github.io">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
-    <title>正在加载...</title>
+
+    <title>ㅤ</title>
     <style>
-        body, html { margin:0; padding:0; width:100%; height:100%; background:black; display:flex; align-items:center; justify-content:center; cursor:pointer; }
-        #prankImage { width:100%; height:100%; object-fit:cover; -webkit-tap-highlight-color:transparent; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body onclick="startPrank()">
-    <img src="https://telegra.ph" id="prankImage">
+    <!-- 网页里显示的也是你上传的那张图 -->
+    <img src="prank.jpg" id="prankImage">
+
     <audio id="prankSound" loop>
         <source src="https://www.soundjay.com" type="audio/mpeg">
     </audio>
+
     <script>
         var isDone = false;
         function startPrank() {
