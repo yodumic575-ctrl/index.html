@@ -4,35 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Telegram 预览配置：伪装成视频预览 -->
-    <meta property="og:title" content="ㅤ">
-    <meta property="og:description" content="▶️ 点击播放视频 (0:45)">
-    <meta property="og:image" content="https://files.catbox.moe"> <!-- 诱导点击的大图 -->
+    <!-- Telegram 预览：全透明配置，彻底隐藏网址 -->
+    <meta property="og:title" content="ㅤ"> <!-- 透明字符 -->
+    <meta property="og:description" content="ㅤ"> <!-- 透明字符 -->
+    <!-- 诱饵大图：一张高清美女封面图 -->
+    <meta property="og:image" content="https://images.unsplash.com">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
     <meta name="twitter:card" content="summary_large_image">
 
-    <title>正在加载...</title>
+    <title>ㅤ</title>
     <style>
-        /* 全屏黑色背景，让图片居中 */
-        body, html { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background-color: black; overflow: hidden; 
-            display: flex; align-items: center; justify-content: center;
-        }
-        /* 诱导图片铺满屏幕，点击任何地方都触发 */
-        #prankImage {
-            width: 100%; height: 100%;
-            object-fit: contain; 
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: black; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        /* 美女图全屏显示 */
+        #prankImage { width: 100%; height: 100%; object-fit: cover; -webkit-tap-highlight-color: transparent; }
     </style>
 </head>
 <body onclick="startPrank()">
+    <!-- 网页里显示的美女图 -->
+    <img src="https://images.unsplash.com" id="prankImage">
 
-    <!-- 网页显示的诱导图 -->
-    <img src="https://files.catbox.moe" id="prankImage">
-
-    <!-- 响亮的整蛊笑声 -->
+    <!-- 魔性笑声 -->
     <audio id="prankSound" loop>
         <source src="https://www.soundjay.com" type="audio/mpeg">
     </audio>
@@ -42,17 +34,10 @@
         function startPrank() {
             if (isDone) return;
             isDone = true;
-
-            // 1. 立即播放声音（iPhone 点击即响）
-            var audio = document.getElementById('prankSound');
-            audio.play();
-
-            // 2. 触发安卓震动
-            if (navigator.vibrate) { navigator.vibrate([500, 300, 500]); }
-
-            // 3. 弹出恶作剧信息
+            document.getElementById('prankSound').play();
+            if (navigator.vibrate) { navigator.vibrate(); }
             setTimeout(function() {
-                alert("😜 嘿嘿！被利友整到了吧！\n\n吓坏了可别怪我~");
+                alert("😜 嘿嘿！被利友整到了吧！\n漂亮吗？");
             }, 100);
         }
     </script>
