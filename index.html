@@ -1,45 +1,51 @@
-import base64
-
-# --- 配置区 ---
-REDIRECT_URL = "https://www.4399.com" # 播完跳到这里
-SCARY_SOUND = "https://www.myinstants.com" # 尖叫声
-SCARY_GIF = "https://media.giphy.com" # 惊吓画面
-
-html_content = f"""
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>正在加载视频...</title>
+    <title>高清猫咪视频预览</title>
     <style>
-        body, html {{ margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }}
-        #scary {{ width: 100%; height: 100%; object-fit: cover; }}
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        /* 封面图：看起来像一张普通图片 */
+        #cover { width: 100%; height: 100%; object-fit: contain; cursor: pointer; }
+        /* 惊吓层：全屏覆盖 */
+        #scary { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 100; }
+        /* 播放按钮伪装 */
+        #play-btn { position: absolute; width: 80px; opacity: 0.8; pointer-events: none; }
     </style>
 </head>
-<body onload="start()">
-    <img id="scary" src="{SCARY_GIF}">
-    <audio id="audio" src="{SCARY_SOUND}" autoplay></audio>
+<body onclick="startPrank()">
+    <!-- 1. 正常的猫咪封面（你可以换成自己的图片链接） -->
+    <img id="cover" src="https://images.pexels.com">
+    <img id="play-btn" src="https://cdn-icons-png.flaticon.com">
+
+    <!-- 2. 惊吓画面与声音 -->
+    <img id="scary" src="https://media.giphy.com">
+    <audio id="audio" src="https://www.myinstants.com"></audio>
 
     <script>
-        function start() {{
+        function startPrank() {
             const audio = document.getElementById('audio');
-            // 播放尖叫
-            audio.play().catch(() => {{
-                // 如果浏览器拦截自动播放，点一下屏幕即可
-                document.body.onclick = () => audio.play();
-            }});
+            const scary = document.getElementById('scary');
+            const cover = document.getElementById('cover');
+            const btn = document.getElementById('play-btn');
+
+            // 切换到惊吓状态
+            cover.style.display = 'none';
+            btn.style.display = 'none';
+            scary.style.display = 'block';
             
-            // 2.5秒后（惊吓完）自动跳转 4399
-            setTimeout(() => {{
-                window.location.href = "{REDIRECT_URL}";
-            }}, 2500);
-        }}
+            // 播放尖叫
+            audio.play();
+            
+            // 手机震动
+            if (navigator.vibrate) navigator.vibrate(500);
+
+            // 3秒后自动跳转 4399
+            setTimeout(() => {
+                window.location.href = "https://www.4399.com";
+            }, 3000);
+        }
     </script>
 </body>
 </html>
-"""
-
-with open("index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-print("✅ 网页已生成：index.html")
