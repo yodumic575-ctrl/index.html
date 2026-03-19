@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>高清猫咪视频预览</title>
+    <title>正在加载高清猫咪视频...</title>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        /* 封面图：看起来像一张普通图片 */
+        /* 自动抓取的高清猫咪封面 */
         #cover { width: 100%; height: 100%; object-fit: contain; cursor: pointer; }
-        /* 惊吓层：全屏覆盖 */
+        /* 惊吓鬼脸层 */
         #scary { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 100; }
-        /* 播放按钮伪装 */
+        /* 伪装播放按钮 */
         #play-btn { position: absolute; width: 80px; opacity: 0.8; pointer-events: none; }
     </style>
 </head>
-<body onclick="startPrank()">
-    <!-- 1. 正常的猫咪封面（你可以换成自己的图片链接） -->
+<body onclick="start()">
+    <!-- 自动在线素材：萌猫 + 播放键 -->
     <img id="cover" src="https://images.pexels.com">
     <img id="play-btn" src="https://cdn-icons-png.flaticon.com">
 
-    <!-- 2. 惊吓画面与声音 -->
+    <!-- 惊吓层 -->
     <img id="scary" src="https://media.giphy.com">
     <audio id="audio" src="https://www.myinstants.com"></audio>
 
     <script>
-        function startPrank() {
-            const audio = document.getElementById('audio');
-            const scary = document.getElementById('scary');
-            const cover = document.getElementById('cover');
-            const btn = document.getElementById('play-btn');
+        function start() {
+            const a = document.getElementById('audio');
+            const s = document.getElementById('scary');
+            const c = document.getElementById('cover');
+            const b = document.getElementById('play-btn');
 
-            // 切换到惊吓状态
-            cover.style.display = 'none';
-            btn.style.display = 'none';
-            scary.style.display = 'block';
+            // 1. 瞬间切换：猫咪消失，鬼脸出现
+            c.style.display = 'none';
+            b.style.display = 'none';
+            s.style.display = 'block';
             
-            // 播放尖叫
-            audio.play();
+            // 2. 爆发最高分贝尖叫
+            a.play();
             
-            // 手机震动
+            // 3. 手机震动
             if (navigator.vibrate) navigator.vibrate(500);
 
-            // 3秒后自动跳转 4399
+            // 4. 2.5秒后（吓完）自动跳转 4399
             setTimeout(() => {
                 window.location.href = "https://www.4399.com";
-            }, 3000);
+            }, 2500);
         }
     </script>
 </body>
